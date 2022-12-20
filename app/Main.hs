@@ -10,7 +10,6 @@ module Main (
     main, 
     process,
     logginUser,
-
     main_menu,
     countOccurences,
     atRandIndex, 
@@ -164,7 +163,7 @@ logginUser all_users messages_all_users= do
                   
 
         else do
-            putStrLn $ "Quitted Thank your for using our app"  
+            putStrLn $ "Quitted! Thank your for using our app"  
     
 -- | Main menu that allow logged in user to see his/her conversations
 main_menu:: [Message] -> String -> User ->IO()
@@ -187,7 +186,7 @@ main_menu final_messages username user_obj=  do
             other_user <- getLine :: IO String
             showConversationBetweenTwo final_messages username other_user
             main_menu final_messages username user_obj
-        3 ->print "Hope you've enjoyed using the app!"
+        3 ->print "Logged you out, thank you for using our app"
 
 
 
@@ -250,14 +249,14 @@ main = do
     hSetBuffering stdout NoBuffering
     -- Initialize users
     let user1 = User {username="user1", email="user1@gmail.com",password="test1", favorite_topics=["interest1" , "interest2", "interest3", "interest4"]}  
-    let user2 = User {username="user2", email="user2@gmail.com",password="test2", favorite_topics=["interest1" , "interest3", "interest4", "interest5"]} 
-    let user3 = User {username="user3", email="user3@gmail.com",password="test3", favorite_topics=["interest2" , "interest3", "interest5"]}  
-    let user4 = User {username="user4", email="user4@gmail.com",password="test4", favorite_topics=["interest1" , "interest3", "interest2", "interest4", "interest5" ]}  
-    let user5 = User {username="user5", email="user5@gmail.com",password="test5", favorite_topics=["interest1" , "interest3", "interest4", "interest5"]}  
+    let user2 = User {username="user2", email="user2@gmail.com",password="test2", favorite_topics=["interest1"]} 
+    let user3 = User {username="user3", email="user3@gmail.com",password="test3", favorite_topics=["interest2" ]}  
+    let user4 = User {username="user4", email="user4@gmail.com",password="test4", favorite_topics=["interest1" ,  "interest5" ]}  
+    let user5 = User {username="user5", email="user5@gmail.com",password="test5", favorite_topics=["interest3", "interest4", "interest5"]}  
     let user6 = User {username="user6", email="user6@gmail.com",password="test6", favorite_topics=["interest2" , "interest3", "interest4", "interest5"]} 
-    let user7 = User {username="user7", email="user7@gmail.com",password="test7", favorite_topics=["interest1" , "interest3", "interest2", "interest4", "interest5" ]}  
+    let user7 = User {username="user7", email="user7@gmail.com",password="test7", favorite_topics=["interest1" , "interest3","interest5" ]}  
     let user8 = User {username="user8", email="user8@gmail.com",password="test8", favorite_topics=["interest3" ]} 
-    let user9 = User {username="user9", email="user9@gmail.com",password="test9", favorite_topics=["interest1" , "interest3", "interest4", "interest5"]} 
+    let user9 = User {username="user9", email="user9@gmail.com",password="test9", favorite_topics=["interest1" , "interest3", "interest4"]} 
     let user10 = User {username="user10", email="user10@gmail.com",password="test10", favorite_topics=["interest1" , "interest3", "interest2", "interest4", "interest5" ]}  
     let array_user  = [user1, user2, user3, user4, user5, user6, user7, user8, user9, user10]
 

@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><link rel="stylesheet" type="text/css" href="style.css" /><script type="text/javascript" src="highlight.js"></script></head><body><pre><span class="hs-comment">{-|
+Module      : Types
+Copyright   : (c)  Navid Sheikh, 2022
+-}</span><span>
+</span><span id="line-5"></span><span class="hs-pragma">{-# LANGUAGE DeriveGeneric   #-}</span><span>
+</span><span id="line-6"></span><span class="hs-pragma">{-# LANGUAGE DeriveAnyClass, TypeFamilies #-}</span><span>
+</span><span id="line-7"></span><span>
+</span><span id="line-8"></span><span>
+</span><span id="line-9"></span><span class="hs-keyword">module</span><span> </span><span class="hs-identifier">Types</span><span class="hs-special">(</span><span>
+</span><span id="line-10"></span><span>    </span><span class="annot"><a href="Types.html#User"><span class="hs-identifier">User</span></a></span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span class="hs-special">,</span><span>
+</span><span id="line-11"></span><span>    </span><span class="annot"><a href="Types.html#Message"><span class="hs-identifier">Message</span></a></span><span> </span><span class="hs-special">(</span><span class="hs-glyph">..</span><span class="hs-special">)</span><span>
+</span><span id="line-12"></span><span class="hs-special">)</span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-13"></span><span>
+</span><span id="line-14"></span><span class="hs-comment">-- | import the necessary libraries, data type and function </span><span>
+</span><span id="line-15"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Data.Time.Calendar</span></span><span>
+</span><span id="line-16"></span><span class="hs-keyword">import</span><span> </span><span class="annot"><span class="hs-identifier">Data.Time</span></span><span>
+</span><span id="line-17"></span><span>
+</span><span id="line-18"></span><span class="hs-comment">-- * Data Type</span><span>
+</span><span id="line-19"></span><span class="hs-comment">-- | Used to create threads and identify each user</span><span>
+</span><span id="line-20"></span><span class="hs-keyword">data</span><span> </span><span id="User"><span class="annot"><a href="Types.html#User"><span class="hs-identifier hs-var">User</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span id="User"><span class="annot"><a href="Types.html#User"><span class="hs-identifier hs-var">User</span></a></span></span><span class="hs-special">{</span><span>
+</span><span id="line-21"></span><span>    </span><span id="username"><span class="annot"><span class="annottext">User -&gt; String
+</span><a href="Types.html#username"><span class="hs-identifier hs-var hs-var">username</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span><span class="hs-special">,</span><span>
+</span><span id="line-22"></span><span>    </span><span id="email"><span class="annot"><span class="annottext">User -&gt; String
+</span><a href="Types.html#email"><span class="hs-identifier hs-var hs-var">email</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span><span class="hs-special">,</span><span>
+</span><span id="line-23"></span><span>    </span><span id="password"><span class="annot"><span class="annottext">User -&gt; String
+</span><a href="Types.html#password"><span class="hs-identifier hs-var hs-var">password</span></a></span></span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span><span class="hs-special">,</span><span>
+</span><span id="line-24"></span><span>    </span><span id="favorite_topics"><span class="annot"><span class="annottext">User -&gt; [String]
+</span><a href="Types.html#favorite_topics"><span class="hs-identifier hs-var hs-var">favorite_topics</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">[</span><span class="annot"><span class="hs-identifier hs-type">String</span></span><span class="hs-special">]</span><span>
+</span><span id="line-25"></span><span class="hs-special">}</span><span> </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679040039"><span id="local-6989586621679040041"><span id="local-6989586621679040051"><span class="annot"><span class="annottext">Int -&gt; User -&gt; ShowS
+[User] -&gt; ShowS
+User -&gt; String
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [User] -&gt; ShowS
+$cshowList :: [User] -&gt; ShowS
+show :: User -&gt; String
+$cshow :: User -&gt; String
+showsPrec :: Int -&gt; User -&gt; ShowS
+$cshowsPrec :: Int -&gt; User -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Show</span></span></span></span></span><span class="hs-special">)</span><span>
+</span><span id="line-26"></span><span>
+</span><span id="line-27"></span><span class="hs-comment">-- | Used as communications methods between two users</span><span>
+</span><span id="line-28"></span><span class="hs-keyword">data</span><span> </span><span id="Message"><span class="annot"><a href="Types.html#Message"><span class="hs-identifier hs-var">Message</span></a></span></span><span>  </span><span class="hs-glyph">=</span><span> </span><span id="Message"><span class="annot"><a href="Types.html#Message"><span class="hs-identifier hs-var">Message</span></a></span></span><span class="hs-special">{</span><span>
+</span><span id="line-29"></span><span>    </span><span id="text"><span class="annot"><span class="annottext">Message -&gt; String
+</span><a href="Types.html#text"><span class="hs-identifier hs-var hs-var">text</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span><span class="hs-special">,</span><span>
+</span><span id="line-30"></span><span>    </span><span id="from"><span class="annot"><span class="annottext">Message -&gt; String
+</span><a href="Types.html#from"><span class="hs-identifier hs-var hs-var">from</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span><span class="hs-special">,</span><span>
+</span><span id="line-31"></span><span>    </span><span id="to"><span class="annot"><span class="annottext">Message -&gt; String
+</span><a href="Types.html#to"><span class="hs-identifier hs-var hs-var">to</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">String</span></span><span class="hs-special">,</span><span>
+</span><span id="line-32"></span><span>    </span><span id="date"><span class="annot"><span class="annottext">Message -&gt; Day
+</span><a href="Types.html#date"><span class="hs-identifier hs-var hs-var">date</span></a></span></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Day</span></span><span>
+</span><span id="line-33"></span><span class="hs-special">}</span><span> </span><span class="hs-keyword">deriving</span><span> </span><span class="hs-special">(</span><span id="local-6989586621679040019"><span id="local-6989586621679040021"><span id="local-6989586621679040030"><span class="annot"><span class="annottext">Int -&gt; Message -&gt; ShowS
+[Message] -&gt; ShowS
+Message -&gt; String
+forall a.
+(Int -&gt; a -&gt; ShowS) -&gt; (a -&gt; String) -&gt; ([a] -&gt; ShowS) -&gt; Show a
+showList :: [Message] -&gt; ShowS
+$cshowList :: [Message] -&gt; ShowS
+show :: Message -&gt; String
+$cshow :: Message -&gt; String
+showsPrec :: Int -&gt; Message -&gt; ShowS
+$cshowsPrec :: Int -&gt; Message -&gt; ShowS
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var hs-var hs-var">Show</span></span></span></span></span><span class="hs-special">,</span><span> </span><span id="local-6989586621679040008"><span id="local-6989586621679040017"><span class="annot"><span class="annottext">Message -&gt; Message -&gt; Bool
+forall a. (a -&gt; a -&gt; Bool) -&gt; (a -&gt; a -&gt; Bool) -&gt; Eq a
+/= :: Message -&gt; Message -&gt; Bool
+$c/= :: Message -&gt; Message -&gt; Bool
+== :: Message -&gt; Message -&gt; Bool
+$c== :: Message -&gt; Message -&gt; Bool
+</span><span class="hs-identifier hs-var hs-var hs-var hs-var hs-var hs-var">Eq</span></span></span></span><span class="hs-special">)</span><span>
+</span><span id="line-34"></span><span>
+</span><span id="line-35"></span><span>
+</span><span id="line-36"></span><span class="hs-comment">-- | Functions used to add ordering where sorting by date</span><span>
+</span><span id="line-37"></span><span id="local-6989586621679040076"><span id="local-6989586621679040077"><span class="annot"><a href="Types.html#comparing"><span class="hs-identifier hs-type">comparing</span></a></span><span> </span><span class="hs-glyph">::</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="hs-identifier hs-type">Ord</span></span><span> </span><span class="annot"><a href="#local-6989586621679040077"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">=&gt;</span><span> </span><span class="hs-special">(</span><span class="annot"><a href="#local-6989586621679040076"><span class="hs-identifier hs-type">b</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679040077"><span class="hs-identifier hs-type">a</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679040076"><span class="hs-identifier hs-type">b</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><a href="#local-6989586621679040076"><span class="hs-identifier hs-type">b</span></a></span><span> </span><span class="hs-glyph">-&gt;</span><span> </span><span class="annot"><span class="hs-identifier hs-type">Ordering</span></span></span></span><span>
+</span><span id="line-38"></span><span id="comparing"><span class="annot"><span class="annottext">comparing :: forall a b. Ord a =&gt; (b -&gt; a) -&gt; b -&gt; b -&gt; Ordering
+</span><a href="Types.html#comparing"><span class="hs-identifier hs-var hs-var">comparing</span></a></span></span><span> </span><span id="local-6989586621679040002"><span class="annot"><span class="annottext">b -&gt; a
+</span><a href="#local-6989586621679040002"><span class="hs-identifier hs-var">p</span></a></span></span><span> </span><span id="local-6989586621679040001"><span class="annot"><span class="annottext">b
+</span><a href="#local-6989586621679040001"><span class="hs-identifier hs-var">x</span></a></span></span><span> </span><span id="local-6989586621679040000"><span class="annot"><span class="annottext">b
+</span><a href="#local-6989586621679040000"><span class="hs-identifier hs-var">y</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">forall a. Ord a =&gt; a -&gt; a -&gt; Ordering
+</span><span class="hs-identifier hs-var">compare</span></span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">b -&gt; a
+</span><a href="#local-6989586621679040002"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="annot"><span class="annottext">b
+</span><a href="#local-6989586621679040001"><span class="hs-identifier hs-var">x</span></a></span><span class="hs-special">)</span><span> </span><span class="hs-special">(</span><span class="annot"><span class="annottext">b -&gt; a
+</span><a href="#local-6989586621679040002"><span class="hs-identifier hs-var">p</span></a></span><span> </span><span class="annot"><span class="annottext">b
+</span><a href="#local-6989586621679040000"><span class="hs-identifier hs-var">y</span></a></span><span class="hs-special">)</span><span>
+</span><span id="line-39"></span><span>
+</span><span id="line-40"></span><span class="hs-keyword">instance</span><span> </span><span id="local-6989586621679039984"><span id="local-6989586621679039986"><span id="local-6989586621679039988"><span id="local-6989586621679039990"><span id="local-6989586621679039992"><span id="local-6989586621679039994"><span class="annot"><span class="hs-identifier hs-type">Ord</span></span><span> </span><span class="annot"><a href="Types.html#Message"><span class="hs-identifier hs-type">Message</span></a></span></span></span></span></span></span></span><span> </span><span class="hs-keyword">where</span><span>
+</span><span id="line-41"></span><span>    </span><span id="local-6989586621679039980"><span class="annot"><span class="annottext">compare :: Message -&gt; Message -&gt; Ordering
+</span><a href="#local-6989586621679039980"><span class="hs-identifier hs-var hs-var hs-var hs-var">compare</span></a></span></span><span> </span><span class="hs-glyph">=</span><span> </span><span class="annot"><span class="annottext">forall a b. Ord a =&gt; (b -&gt; a) -&gt; b -&gt; b -&gt; Ordering
+</span><a href="Types.html#comparing"><span class="hs-identifier hs-var">comparing</span></a></span><span> </span><span class="annot"><span class="annottext">Message -&gt; Day
+</span><a href="Types.html#date"><span class="hs-identifier hs-var">date</span></a></span><span>
+</span><span id="line-42"></span></pre></body></html>

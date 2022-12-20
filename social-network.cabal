@@ -6,12 +6,12 @@ cabal-version: 1.12
 
 name:           social-network
 version:        0.1.0.0
-description:    Please see the README on GitHub at <https://github.com/githubuser/social-network#readme>
-homepage:       https://github.com/githubuser/social-network#readme
-bug-reports:    https://github.com/githubuser/social-network/issues
-author:         Author name here
+description:    Social network with threads in haskell
+homepage:       https://github.com/githubuser/social-network-haskell#readme
+bug-reports:    https://github.com/githubuser/social-network-haskell/issues
+author:         Navid Sheikh
 maintainer:     example@example.com
-copyright:      2022 Author name here
+copyright:      2022 Navid
 license:        BSD3
 license-file:   LICENSE
 build-type:     Simple
@@ -21,7 +21,7 @@ extra-source-files:
 
 source-repository head
   type: git
-  location: https://github.com/githubuser/social-network
+  location: https://github.com/githubuser/social-network-haskell
 
 library
   exposed-modules:
